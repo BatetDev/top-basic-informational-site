@@ -1,0 +1,11 @@
+{
+  "name": "top-basic-informational-site",
+  "version": "1.0.0",
+  "description": "Basic informational site - The Odin Project Node course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "license": "MIT"
+}
