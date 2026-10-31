@@ -5,49 +5,60 @@ const server = http.createServer(async (req, res) => {
   console.log(req.method, req.url);
 
   switch (req.url) {
-    case '/':
+    case '/': {
+      let html;
       try {
-        const html = await fs.readFile('index.html', 'utf8');
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(html);
+        html = await fs.readFile('index.html', 'utf8');
       } catch (err) {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('500 - internal server error');
+        return;
       }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(html);
       break;
+    }
 
-    case '/about':
+    case '/about': {
+      let html;
       try {
-        const html = await fs.readFile('about.html', 'utf8');
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(html);
+        html = await fs.readFile('about.html', 'utf8');
       } catch (err) {
-        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('500 - internal server error');
+        return;
       }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(html);
       break;
+    }
 
-    case '/contact-me':
+    case '/contact-me': {
+      let html;
       try {
-        const html = await fs.readFile('contact-me.html', 'utf8');
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(html);
+        html = await fs.readFile('contact-me.html', 'utf8');
       } catch (err) {
-        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('500 - internal server error');
+        return;
       }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(html);
       break;
+    }
 
-    default:
+    default: {
+      let html;
       try {
-        const html = await fs.readFile('404.html', 'utf8');
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end(html);
+        html = await fs.readFile('404.html', 'utf8');
       } catch (err) {
-        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('500 - internal server error');
+        return;
       }
-      break;
+      res.writeHead(404, { 'Content-Type': 'text/html' });
+      res.end(html);
+    }
   }
 });
 
