@@ -1,6 +1,6 @@
 # Basic Informational Site
 
-A small Node.js HTTP server built as part of The Odin Project's Node course.
+A small Express server built as part of The Odin Project's Node course.
 
 ## Routes
 
@@ -17,3 +17,5 @@ A small Node.js HTTP server built as part of The Odin Project's Node course.
 npm install
 npm run dev
 ```
+
+**Note:** `npm run dev` runs `app.js` with `node --watch`. The server listens on port 3000; set the `PORT` environment variable to override it.
